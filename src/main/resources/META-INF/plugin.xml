@@ -1,0 +1,23 @@
+<idea-plugin>
+    <id>org.example.untitled6</id>
+    <name>Stanislav</name>
+    <vendor email="ssugol@yandex.ru" url="https://www.github.com/stasugolnikov">TTT</vendor>
+
+    <description>Plugin which counts and shows your coding stats</description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow
+                id="Your coding stats"
+                anchor="right"
+                factoryClass="com.itmo.software.dev.tools.plugin.ui.StatsWindowFactory"
+                icon="/img/ic_chart_bar.png"/>
+        <applicationService serviceImplementation="com.itmo.software.dev.tools.plugin.CodingCounterService"/>
+        <postStartupActivity implementation="com.itmo.software.dev.tools.plugin.CounterStartupActivity"/>
+    </extensions>
+
+</idea-plugin>
